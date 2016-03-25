@@ -1,2 +1,9 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<% if user_signed_in? %>
+  <h1>Hello, <%= current_user.email %></h1>
+<% else %>
+	<div class="center jumbotron">
+		<h1>Welcom to Task Manager App</h1>	
+		<h2>Created by Volodymyr Shvydkyi</h2>
+		<%= link_to "Sing up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+	</div>  
+<% end %>  
