@@ -21,6 +21,9 @@
     <br/>
 
     <%= render "devise/shared/links" %>
+
+    <h2 class="center">OR</h2>
+
+    <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), class: 'btn btn-primary btn-block' %>
   </div>
 </div>
-
