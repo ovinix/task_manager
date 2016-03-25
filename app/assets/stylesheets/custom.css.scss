@@ -23,7 +23,58 @@ textarea {
 }
 
 .alert-notice {
-	background-color: #dff0d8;
-    border-color: #d6e9c6;
-    color: #3c763d;
+	@extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
+}
+
+input {
+  height: auto !important;
+}
+
+.checkbox {
+  width: auto;
+  margin-top: 0px !important;
+  margin-right: 10px !important;
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
+#error_explanation {
+  @extend .alert, .alert-danger;
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing:         border-box;
 }
