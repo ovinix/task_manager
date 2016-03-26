@@ -1,10 +1,25 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+$font-family-sans-serif: "Roboto", sans-serif !default;
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* mixins, variables, etc. */
+
+
 /* universal */
+
+html {
+  min-height: 100%;
+}
 
 body {
   padding-top: 60px;
+  background: -webkit-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 100%);
+  background:    -moz-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 100%);
+  background:     -ms-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 100%);
+  background:      -o-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 100%);
+  background:         linear-gradient(180deg, #d6d3c1 10%, #d18d0e 100%);
 }
 
 section {
@@ -59,11 +74,12 @@ input {
 }
 
 #error_explanation {
-  @extend .alert, .alert-danger;
-  color: red;
-  ul {
-    color: red;
-    margin: 0 0 30px 0;
+  @extend .alert;
+  color: $state-danger-text;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: $state-danger-text;
+  h2 {
+    @extend h4;
   }
 }
 
@@ -77,4 +93,19 @@ input {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
+}
+
+/* navbar */
+.icon-bar {
+  background: #428bca;
+}
+
+.collapse.in, .collapsing {
+  background: -webkit-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
+  background:    -moz-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
+  background:     -ms-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
+  background:      -o-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
+  background:         linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
+  border-top: none;
+  border-radius: 6px;
 }
