@@ -100,7 +100,7 @@ input {
   background: #428bca;
 }
 
-.collapse.in, .collapsing {
+.navbar-collapse.collapse.in, .navbar-collapse.collapsing {
   background: -webkit-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
   background:    -moz-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
   background:     -ms-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
@@ -108,4 +108,17 @@ input {
   background:         linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
   border-top: none;
   border-radius: 6px;
+}
+
+/* panels */
+
+.panel-heading {
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  .pull-right span:hover {
+    color: $gray-light;
+    cursor: pointer;
+  }
 }

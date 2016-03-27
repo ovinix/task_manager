@@ -1,41 +1,26 @@
 <% if user_signed_in? %>
-  <h1>Hello, <%= current_user.name %>! <small>(<%= current_user.email %>)</small> </h1>
+  <!-- <h1>Hello, <@%= current_user.name %>! <small>(<@%= current_user.email %>)</small> </h1> -->
 
-  <div class="row jumbotron">
-    <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="center text-uppercase">
+      <h2>
+        <strong>Simple todo lists</strong><br/>
+        <small>From Volodymyr Shvydkyi</small>
+      </h2>
+    </div>
 
-    <h1>Listing Projects</h1>
+    <br/>   
 
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>User</th>
-          <th>Title</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @projects.each do |project| %>
-          <tr>
-            <td><%= project.user.name %></td>
-            <td><%= project.title %></td>
-            <td><%= link_to 'Show', project %></td>
-            <td><%= link_to 'Edit', edit_project_path(project) %></td>
-            <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+    <div class="col-md-10 col-md-offset-1">
+      <%= render @projects %>
+      <br/>
+      <div class="center">
+        <%= link_to new_project_path, class: 'btn btn-primary' do %>
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+          <strong>Add TODO List</strong>
         <% end %>
-      </tbody>
-    </table>
-
-    <br>
-
-    <div class="center">
-      <%= link_to new_project_path, class: 'btn btn-primary' do %>
-        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        <strong>Add TODO List</strong>
-      <% end %>
-    </div>    
+      </div>
+    </div> 
   </div>  
 <% else %>
   <div class="center jumbotron">
