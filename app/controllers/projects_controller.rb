@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects
+    @projects = current_user.projects if current_user
   end
 
   # GET /projects/1
@@ -16,10 +16,18 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /projects/1/edit
   def edit
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # POST /projects
@@ -30,9 +38,11 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }
+        format.js
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
+        format.js
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
@@ -44,9 +54,11 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.js
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
+        format.js
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
@@ -58,6 +70,7 @@ class ProjectsController < ApplicationController
     @project.destroy
     respond_to do |format|
       format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.js
       format.json { head :no_content }
     end
   end

@@ -1,0 +1,6 @@
+<% if @project.errors.any? %>
+	$("#project-modal").html("<%= escape_javascript(render 'projects/modal', project: @project, modal_title: 'Add New Project') %>");
+<% else %>
+	$("div#projects").prepend("<%= escape_javascript( render @project )%>");
+	$("div#project-modal").modal('hide');
+<% end %>

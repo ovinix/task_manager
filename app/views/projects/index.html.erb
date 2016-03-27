@@ -1,6 +1,4 @@
 <% if user_signed_in? %>
-  <!-- <h1>Hello, <@%= current_user.name %>! <small>(<@%= current_user.email %>)</small> </h1> -->
-
   <div class="row">
     <div class="center text-uppercase">
       <h2>
@@ -9,23 +7,25 @@
       </h2>
     </div>
 
-    <br/>   
+    <br/>
 
-    <div class="col-md-10 col-md-offset-1">
+    <div id="projects" class="col-md-10 col-md-offset-1">
       <%= render @projects %>
-      <br/>
-      <div class="center">
-        <%= link_to new_project_path, class: 'btn btn-primary' do %>
-          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-          <strong>Add TODO List</strong>
-        <% end %>
-      </div>
-    </div> 
-  </div>  
+    </div>
+
+    <div class="center">
+      <%= link_to new_project_path, remote: true, class: 'btn btn-primary', 'data-toggle': "modal", 'data-target': '#project-modal' do %>
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <strong>Add TODO Project</strong>
+      <% end %>
+    </div>
+
+    <div id="project-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+  </div>
 <% else %>
   <div class="center jumbotron">
     <h1>Welcom to Task Manager App</h1> 
-    <h2>Created by Volodymyr Shvydkyi</h2>
+    <h2><small>Created by Volodymyr Shvydkyi</small></h2>
     <%= link_to "Sing up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
-  </div>  
+  </div>
 <% end %>

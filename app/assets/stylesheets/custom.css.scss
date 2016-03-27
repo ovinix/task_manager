@@ -14,7 +14,6 @@ html {
 }
 
 body {
-  padding-top: 60px;
   background: -webkit-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 100%);
   background:    -moz-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 100%);
   background:     -ms-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 100%);
@@ -96,6 +95,7 @@ input {
 }
 
 /* navbar */
+
 .icon-bar {
   background: #428bca;
 }
@@ -113,12 +113,32 @@ input {
 /* panels */
 
 .panel-heading {
+  cursor: pointer;
   a {
     color: white;
     text-decoration: none;
   }
   .pull-right span:hover {
     color: $gray-light;
-    cursor: pointer;
+  }
+}
+
+/* modals */
+
+.modal input[type=submit] {
+  width: auto;
+}
+
+.modal-header {
+  color: white;
+  background-color: $brand-primary;
+  .close {
+    color: white;
+    opacity: 1;
+    outline: none;
+    text-shadow: none;
+  }
+  .close:hover {
+    color: $gray-light;
   }
 }
