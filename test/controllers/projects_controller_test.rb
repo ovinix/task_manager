@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class ProjectsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
   setup do
+    @user = users(:first)
+    sign_in @user
     @project = projects(:one)
   end
 
@@ -17,7 +21,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should create project" do
-    assert_difference('Project.count') do
+    assert_difference('@user.projects.count') do
       post :create, project: { title: @project.title, user_id: @project.user_id }
     end
 
@@ -40,7 +44,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should destroy project" do
-    assert_difference('Project.count', -1) do
+    assert_difference('@user.projects.count', -1) do
       delete :destroy, id: @project
     end
 
