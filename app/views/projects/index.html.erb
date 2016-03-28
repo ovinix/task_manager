@@ -14,13 +14,13 @@
     </div>
 
     <div class="center">
-      <%= link_to new_project_path, remote: true, class: 'btn btn-primary', 'data-toggle': "modal", 'data-target': '#project-modal' do %>
+      <%= link_to new_project_path, remote: true, class: 'btn btn-primary', 'data-toggle': "modal", 'data-target': '#modal-window' do %>
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         <strong>Add TODO Project</strong>
       <% end %>
     </div>
 
-    <div id="project-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+    <div id="modal-window" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
   </div>
 <% else %>
   <div class="center jumbotron">

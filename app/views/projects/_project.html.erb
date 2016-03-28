@@ -7,9 +7,9 @@
           <%= project.title %>  
         </div>         
         <div class="pull-right">
-          <%= link_to edit_project_path(project), remote: true, 'data-toggle': "modal", 'data-target': '#project-modal' do %>
-            <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span> |
-          <% end %>
+          <%= link_to edit_project_path(project), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
+            <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+          <% end %> |
           <%= link_to project, method: :delete, remote: true, data: { confirm: 'Are you sure?' } do %>
             <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
           <% end %>                
@@ -18,25 +18,21 @@
     </div>
   </div>
   <div id="project-<%= project.id %>-todos" class="panel-collapse collapse in">
-    <div class="panel-body"></div>
-    <table class="table table-hover">
+    <div class="panel-body">
+      <%= render 'tasks/form', project: project, task: Task.new %>
+    </div>
+    <table class="table table-bordered">
       <tbody>
-        <tr class="text-center">
-          <td>
-            <h4><small>No TODOS for now.</small> </h4>         
-          </td>
-        </tr>
-          <!-- <tr>
-            <td class="col-md-1"><%= project.user.name %></td>
-            <td class="col-md-4"><%= project.title %></td>
-            <td class="col-md-1"><%= link_to 'Show', project %></td>
+        <% if project.tasks.any? %>
+          <%= render project.tasks %>
+        <% else %>
+          <tr class="text-center">
+            <td>
+              <h4><small>No TODOS for now.</small> </h4>         
+            </td>
           </tr>
-          <tr>
-            <td class="col-md-1"><%= project.user.name %></td>
-            <td class="col-md-4"><%= project.title %></td>
-            <td class="col-md-1"><%= link_to 'Show', project %></td>
-          </tr> -->
-        </tbody>
+        <% end %>
+      </tbody>
     </table>
   </div>        
 </div>

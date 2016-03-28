@@ -1,10 +1,10 @@
-class CreateTodoItems < ActiveRecord::Migration
+class CreateTasks < ActiveRecord::Migration
   def change
-    create_table :todo_items do |t|
+    create_table :tasks do |t|
       t.references :user, index: true, foreign_key: true
       t.references :project, index: true, foreign_key: true
       t.string :content
-      t.datetime :complited_at
+      t.datetime :completed_at
 
       t.timestamps null: false
     end

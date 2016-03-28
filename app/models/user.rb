@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
   has_many :projects, dependent: :destroy
-  has_many :todo_items, dependent: :destroy
+  has_many :tasks
 
   validates :name, presence: true, length: { maximum: 50 }
 

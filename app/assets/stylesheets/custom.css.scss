@@ -123,6 +123,30 @@ input {
   }
 }
 
+/* tables */
+
+.table {
+  cursor: pointer;
+  a {
+    text-decoration: none;
+  }
+  .hoverable, .hoverable a {
+    color: white;
+  }
+  tr:hover {
+    background-color: #d6d3c1;
+    .hoverable, .hoverable a {
+      color: $gray-light;
+    }
+    span:hover {
+      color: white;
+    }
+  }
+  s {
+    color: $gray-light;
+  }
+}
+
 /* modals */
 
 .modal input[type=submit] {
