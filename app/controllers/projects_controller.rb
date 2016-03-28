@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
