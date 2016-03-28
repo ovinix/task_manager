@@ -1,6 +1,6 @@
 <% if @project.errors.any? %>
 	$("#project-modal").html("<%= escape_javascript(render 'projects/modal', project: @project, modal_title: 'Edit Project Title') %>");
 <% else %>
-	$("div#project-<%= @project.id %>").replaceWith("<%= escape_javascript( render @project )%>");
 	$("div#project-modal").modal('hide');
+	$("div#project-<%= @project.id %>").replaceWith("<%= escape_javascript( render @project )%>");
 <% end %>
