@@ -3,8 +3,10 @@
     <div class="row">
       <div class="col-md-12">
         <div class="pull-left">
-          <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 
-          <%= project.title %>  
+          <strong>
+            <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> 
+            <%= project.title %>  
+          </strong>          
         </div>         
         <div class="pull-right">
           <%= link_to edit_project_path(project), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
@@ -21,7 +23,7 @@
     <div class="panel-body">
       <%= render 'tasks/form', project: project, task: Task.new %>
     </div>
-    <table class="table table-bordered">
+    <table class="table table-curved">
       <tbody>
         <% if project.tasks.any? %>
           <%= render project.tasks %>

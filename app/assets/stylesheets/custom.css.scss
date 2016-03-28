@@ -6,6 +6,7 @@ $font-family-sans-serif: "Roboto", sans-serif !default;
 
 /* mixins, variables, etc. */
 
+$panel-radius: 20px;
 
 /* universal */
 
@@ -112,6 +113,10 @@ input {
 
 /* panels */
 
+.panel {
+  border-radius: 4px 4px $panel-radius $panel-radius;
+}
+
 .panel-heading {
   cursor: pointer;
   a {
@@ -134,7 +139,6 @@ input {
     color: white;
   }
   tr:hover {
-    background-color: #d6d3c1;
     .hoverable, .hoverable a {
       color: $gray-light;
     }
@@ -145,6 +149,48 @@ input {
   s {
     color: $gray-light;
   }
+}
+
+.table-curved {
+  border-collapse: separate;
+  border-radius: $panel-radius;
+  border-left:0px;
+
+    td, th {
+      border-top: 1px solid $table-border-color;
+    }
+
+    th {
+      border-top: none;
+    }
+
+    th:first-child {
+      border-radius: $panel-radius 0 0 0;
+    }
+
+    th:last-child {
+      border-radius: 0 $panel-radius 0 0;
+    }
+
+    th:only-child {
+      border-radius: $panel-radius $panel-radius 0 0;
+    }
+
+    tr:last-child td:first-child {
+      border-radius: 0 0 0 $panel-radius;
+    }
+
+    tr:last-child td:last-child {
+      border-radius: 0 0 $panel-radius 0;
+    }
+
+    tr:last-child td:only-child {
+      border-radius: 0 0 $panel-radius $panel-radius;
+    }
+
+    tr:hover td {
+      background-color: #d6d3c1;
+    }
 }
 
 /* modals */
