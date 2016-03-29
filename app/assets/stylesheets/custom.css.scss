@@ -4,6 +4,7 @@ $font-size-base:         15px !default;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "bootstrap-datetimepicker";
 
 /* mixins, variables, etc. */
 
@@ -93,6 +94,13 @@ input {
   box-sizing:         border-box;
 }
 
+.task-deadline {
+  color: $brand-success;
+}
+.task-failed-deadline {
+  color: $brand-danger;
+}
+
 /* navbar */
 
 .icon-bar {
@@ -133,12 +141,25 @@ input {
   a {
     text-decoration: none;
   }
-  .hoverable, .hoverable a {
-    color: white;
+  .vert-align {
+    vertical-align: middle;
+  }
+  .visible {
+    display: block;
+  }
+  .hoverable {
+    color: $gray-light;
+    a {
+      color: $gray-light;
+    }
+    display: none;
   }
   tr:hover {
-    .hoverable, .hoverable a {
-      color: $gray-light;
+    .visible {
+      display: none !important;
+    }
+    .hoverable {
+      display: block;
     }
     span:hover {
       color: $gray;

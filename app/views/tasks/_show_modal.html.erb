@@ -12,10 +12,29 @@
         <%= render 'shared/error_messages', object: f.object %>
         <div class="input-group">
           <span class="input-group-addon">
-              <%= f.check_box :completed_at, { class: 'group-checkbox', checked: task.completed? }, Time.now, "" %>
+              <%= f.check_box :completed_at, { class: 'group-checkbox', checked: task.completed? }, Time.zone.now, "" %>
           </span>
           <%= f.text_field :content, placeholder: "Start typing here..", autofocus: true, class: 'form-control' %>
         </div>
+        <br/>
+        <!-- DatTime Picker -->
+        <div class="form-group">
+          <%= f.label :deadline_at %>
+          <div class='input-group date' id='datetimepicker1'>
+            <%= f.text_field :deadline_at, placeholder: "Set deadline here..", class: "form-control" %>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker({
+                  format: "YYYY-MM-DD h:mm A"
+                });
+            });
+        </script>
+        <!-- End Datetime Picker -->
         <br/>
         <h4 class="text-center">
           Comments

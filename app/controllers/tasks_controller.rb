@@ -51,7 +51,7 @@ class TasksController < ApplicationController
   def complete
     respond_to do |format|
       if @task.update_attribute(:completed_at, @task.completed? ? nil : Time.now)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to root_path }
         format.js
       else
         format.html
@@ -79,6 +79,14 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:content, :completed_at)
+      valid_params = params.require(:task).permit(:content, :completed_at, :deadline_at)
+
+      unless valid_params[:deadline_at].blank?
+        date_format = "%Y-%m-%d %I:%M %p"
+        offset = DateTime.now.strftime("%z")
+        valid_params[:deadline_at] = DateTime.strptime(valid_params[:deadline_at], date_format).change(offset: offset).to_s
+      end
+
+      return valid_params
     end
 end
