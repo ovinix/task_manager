@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_project
+  before_action :correct_user
   before_action :set_task, except: [:create]
 
   def index
@@ -17,7 +17,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = @project.tasks.build(task_params)
+    @task = @list.tasks.build(task_params)
     @task.user_id = current_user.id
     respond_to do |format|
       if @task.save
@@ -65,13 +65,13 @@ class TasksController < ApplicationController
   end
 
   private
-    def correct_project
-      @project = current_user.projects.find_by(id: params[:project_id])
-      redirect_to root_path if @project.nil?
+    def correct_user
+      @list = current_user.lists.find_by(id: params[:list_id])
+      redirect_to root_path if @list.nil?
     end
 
     def set_task
-      @task = @project.tasks.find(params[:id])
+      @task = @list.tasks.find(params[:id])
     end
 
     def task_params

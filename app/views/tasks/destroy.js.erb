@@ -1,5 +1,5 @@
-<% if @project.tasks.any? %>
+<% if @list.tasks.any? %>
 	$("#todo-item-<%= @task.id %>").remove();
 <% else %>
-	$("div#project-<%= @project.id %>").replaceWith("<%= escape_javascript( render @project )%>");
+	$("div#list-<%= @list.id %>").replaceWith("<%= escape_javascript( render @list )%>");
 <% end %>

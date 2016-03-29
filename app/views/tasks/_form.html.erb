@@ -1,4 +1,4 @@
-<%= form_for([project, task], remote: true) do |f| %>
+<%= form_for([list, task], remote: true) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<p class="input-group">
 	  <%= f.text_field :content, placeholder: "Start typing here to create a task..", class: 'form-control' %>

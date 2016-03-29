@@ -1,5 +1,5 @@
 <% if @task.errors.any? %>
-	$("#project-<%= @project.id %> .panel-body").html("<%= escape_javascript( render 'tasks/form', project: @project, task: @task )%>");
+	$("#list-<%= @list.id %> .panel-body").html("<%= escape_javascript( render 'tasks/form', list: @list, task: @task )%>");
 <% else %>
-	$("div#project-<%= @project.id %>").replaceWith("<%= escape_javascript( render @project )%>");
+	$("div#list-<%= @list.id %>").replaceWith("<%= escape_javascript( render @list )%>");
 <% end %>

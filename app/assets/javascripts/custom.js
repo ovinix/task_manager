@@ -4,11 +4,12 @@ $(document).ready(function() {
 	    $(this).find("[autofocus]:first").focus();
 	});
 
-	$('.panel').on('hide.bs.collapse', function () {
-		$(this).css("border-radius", "4px");
+	$("#lists").on('hide.bs.collapse', '.panel', function (e) {
+	  $(e.currentTarget).css("border-radius", "4px");
 	});
 
-	$('.panel').on('show.bs.collapse', function () {
-		$(this).css("border-radius", "");
+	$("#lists").on('show.bs.collapse', '.panel', function (e) {
+	  $(e.currentTarget).css("border-radius", "");
 	});
 });
+

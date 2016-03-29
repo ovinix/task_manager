@@ -1,7 +1,7 @@
 <% if task.completed? %>
 	<tr id="todo-item-<%= task.id %>">
 		<td class="col-md-1 text-center">
-			<%= link_to complete_project_task_path(task.project, task), remote: true, method: :patch do %>
+			<%= link_to complete_list_task_path(task.list, task), remote: true, method: :patch do %>
 				<span class="glyphicon glyphicon-check" aria-hidden="true"></span>
 			<% end %>
 		</td>
@@ -9,10 +9,10 @@
 			<s><%= task.content %></s>
 		</td>
 		<td class="col-md-2 text-center hoverable">
-			<%= link_to edit_project_task_path(task.project, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
+			<%= link_to edit_list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
 				<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
 			<% end %> | 
-			<%= link_to project_task_path(task.project, task), remote: true, method: :delete do %>
+			<%= link_to list_task_path(task.list, task), remote: true, method: :delete do %>
 				<span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
 			<% end %>
 		</td>
@@ -20,7 +20,7 @@
 <% else %>
 	<tr id="todo-item-<%= task.id %>">
 		<td class="col-md-1 text-center">
-			<%= link_to complete_project_task_path(task.project, task), remote: true, method: :patch do %>
+			<%= link_to complete_list_task_path(task.list, task), remote: true, method: :patch do %>
 				<span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
 			<% end %>
 		</td>
@@ -28,10 +28,10 @@
 			<%= task.content %>
 		</td>
 		<td class="col-md-2 text-center hoverable">
-			<%= link_to edit_project_task_path(task.project, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
+			<%= link_to edit_list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
 				<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
 			<% end %> | 
-			<%= link_to project_task_path(task.project, task), remote: true, method: :delete do %>
+			<%= link_to list_task_path(task.list, task), remote: true, method: :delete do %>
 				<span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
 			<% end %>
 		</td>

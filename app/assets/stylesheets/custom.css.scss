@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
 $font-family-sans-serif: "Roboto", sans-serif !default;
+$font-size-base:         15px !default;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -78,9 +79,6 @@ input {
   color: $state-danger-text;
   background-color: rgba(0, 0, 0, 0.2);
   border-color: $state-danger-text;
-  h2 {
-    @extend h4;
-  }
 }
 
 /* miscellaneous */

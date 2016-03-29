@@ -2,12 +2,12 @@
 
 one:
   user_id: first
-  project_id: one
+  list_id: one
   content: 'MyString'
   completed_at: 2016-03-28 20:47:25
 
 two:
   user_id: first
-  project_id: one
+  list_id: one
   content: 'MyString2'
   completed_at: 2016-03-28 20:47:25

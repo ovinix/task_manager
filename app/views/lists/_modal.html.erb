@@ -8,9 +8,9 @@
       </h4>
     </div>
     <div class="modal-body">
-      <%= form_for project, remote: true do |f| %>
+      <%= form_for list, remote: true do |f| %>
         <%= render 'shared/error_messages', object: f.object %>    
-        <%= f.text_field :title, placeholder: "Project title here..", autofocus: true, class: 'form-control' %>
+        <%= f.text_field :title, placeholder: "List title here..", autofocus: true, class: 'form-control' %>
         <div class="text-right">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <%= f.submit "Save", class: 'btn btn-primary' %>
