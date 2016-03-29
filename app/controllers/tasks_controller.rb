@@ -7,6 +7,10 @@ class TasksController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
   end
 
   def edit
@@ -75,6 +79,6 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      params.require(:task).permit(:content)
+      params.require(:task).permit(:content, :completed_at)
     end
 end

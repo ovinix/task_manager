@@ -141,7 +141,7 @@ input {
       color: $gray-light;
     }
     span:hover {
-      color: white;
+      color: $gray;
     }
   }
   s {
@@ -192,7 +192,7 @@ input {
     }
 
     tr:hover td {
-      background-color: #d6d3c1;
+      background-color: lightgoldenrodyellow;
     }
 }
 
@@ -214,4 +214,27 @@ input {
   .close:hover {
     color: $gray-light;
   }
+}
+
+.input-group-addon .group-checkbox {
+  width: auto;
+  margin-top: 4px !important;
+  margin-right: 0px !important;
+}
+
+/* comments */
+
+.comment {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 10px;
+  background: $gray-lighter;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-time {
+  color: $gray-light;
 }

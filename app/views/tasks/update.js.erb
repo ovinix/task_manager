@@ -1,5 +1,5 @@
 <% if @task.errors.any? %>
-	$("#modal-window").html("<%= escape_javascript(render 'tasks/modal', task: @task, modal_title: 'Edit Task') %>");
+	$("#modal-window").html("<%= escape_javascript(render 'tasks/show_modal', task: @task, modal_title: 'Edit Task') %>");
 <% else %>
 	$("div#modal-window").modal('hide');
 	$("div#list-<%= @list.id %>").replaceWith("<%= escape_javascript( render @list )%>");

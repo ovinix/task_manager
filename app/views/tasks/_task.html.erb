@@ -9,7 +9,7 @@
 			<s><%= task.content %></s>
 		</td>
 		<td class="col-md-2 text-center hoverable">
-			<%= link_to edit_list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
+			<%= link_to list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
 				<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
 			<% end %> | 
 			<%= link_to list_task_path(task.list, task), remote: true, method: :delete do %>
@@ -28,7 +28,7 @@
 			<%= task.content %>
 		</td>
 		<td class="col-md-2 text-center hoverable">
-			<%= link_to edit_list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
+			<%= link_to list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
 				<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
 			<% end %> | 
 			<%= link_to list_task_path(task.list, task), remote: true, method: :delete do %>
