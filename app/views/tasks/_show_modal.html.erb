@@ -36,6 +36,19 @@
         </script>
         <!-- End Datetime Picker -->
         <br/>
+        <label>Priority</label>
+        <div class="btn-group btn-group-justified" data-toggle="buttons">
+          <%= f.label :priority, 'Normal', value: :normal, class: "btn btn-default #{'active' if task.normal?}" do %>
+            <%= f.radio_button :priority, :normal, checked: task.normal? %>
+            Normal
+          <% end %>
+          <%= f.label :priority, 'Important', value: :important, class: "btn btn-default #{'active' if task.important?}" do %>
+            <%= f.radio_button :priority, :important, checked: task.important? %>
+            <span class="star glyphicon glyphicon glyphicon-star" aria-hidden="true"></span> 
+             Important
+          <% end %>
+        </div>
+        <br/>
         <h4 class="text-center">
           Comments
         </h4>
@@ -58,8 +71,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
-        <%= f.submit "Close", class: 'btn btn-primary' %>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= f.submit "Update", class: 'btn btn-primary' %>
       </div>
     <% end %>
   </div>

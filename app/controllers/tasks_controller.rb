@@ -15,7 +15,7 @@ class TasksController < ApplicationController
 
   def edit
     respond_to do |format|
-      format.html
+      format.html { redirect_to root_path }
       format.js
     end
   end
@@ -49,15 +49,19 @@ class TasksController < ApplicationController
   end
 
   def complete
+    @task.update_attribute(:completed_at, @task.completed? ? nil : Time.now)
     respond_to do |format|
-      if @task.update_attribute(:completed_at, @task.completed? ? nil : Time.now)
-        format.html { redirect_to root_path }
-        format.js
-      else
-        format.html
-        format.js
-      end
-    end   
+      format.html { redirect_to root_path }
+      format.js
+    end
+  end
+
+  def prioritize
+    @task.important? ? @task.normal! : @task.important!
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
+    end
   end
 
   def destroy
@@ -79,7 +83,7 @@ class TasksController < ApplicationController
     end
 
     def task_params
-      valid_params = params.require(:task).permit(:content, :completed_at, :deadline_at)
+      valid_params = params.require(:task).permit(:content, :completed_at, :deadline_at, :priority)
 
       unless valid_params[:deadline_at].blank?
         date_format = "%Y-%m-%d %I:%M %p"

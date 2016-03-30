@@ -10,8 +10,11 @@
 		</td>
 		<td class="col-md-2 col-xs-2 text-center vert-align">
 			<div class="hoverable">
+				<%= link_to prioritize_list_task_path(task.list, task), remote: true, method: :patch do %>
+					<span class="glyphicon glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+				<% end %> | 
 				<%= link_to list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
-				<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				<% end %> | 
 				<%= link_to list_task_path(task.list, task), remote: true, method: :delete do %>
 					<span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -27,12 +30,18 @@
 			<% end %>
 		</td>
 		<td class="col-md-9 col-xs-9">
+			<% if task.important? %>
+				<span class="star glyphicon glyphicon glyphicon-star" aria-hidden="true"></span>
+			<% end %>			 
 			<%= task.content %>
 		</td>
 		<td class="col-md-2 col-xs-2 text-center vert-align">
 			<div class="hoverable">
+				<%= link_to prioritize_list_task_path(task.list, task), remote: true, method: :patch do %>
+					<span class="glyphicon glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+				<% end %> | 
 				<%= link_to list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
-				<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
+					<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				<% end %> | 
 				<%= link_to list_task_path(task.list, task), remote: true, method: :delete do %>
 					<span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
@@ -54,9 +63,12 @@
 			</div>
 			<div class="visible visible-xs">
 				<% if task.has_deadline? %>
-					<div class="task-deadline">
-						<span class="glyphicon glyphicon glyphicon-time" aria-hidden="true"></span> 
-						<!-- <#%= task.deadline_at.to_date %> --> 	
+					<% if task.failed_deadline? %>
+						<div class="task-failed-deadline">
+					<% else %>
+						<div class="task-deadline">
+					<% end %>	
+						<span class="glyphicon glyphicon glyphicon-time" aria-hidden="true"></span>	
 					</div>
 				<% end %>
 			</div>		

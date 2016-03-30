@@ -2,13 +2,15 @@ class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :list
 
-  default_scope -> { order(created_at: :desc) }
+  default_scope -> { order(:completed_at, priority: :desc, created_at: :desc ) }
 
   validates :user, presence: true
   validates :list, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
   attr_reader :deadline_at
+
+  enum priority: [:normal, :important]
 
   # Overriding default accessor to show local time in views
   def deadline_at

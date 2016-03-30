@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329141447) do
+ActiveRecord::Schema.define(version: 20160330102737) do
 
   create_table "lists", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 20160329141447) do
     t.integer  "list_id"
     t.string   "content"
     t.datetime "completed_at"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.datetime "deadline_at"
+    t.integer  "priority",     default: 0
   end
 
   add_index "tasks", ["list_id"], name: "index_tasks_on_list_id"
