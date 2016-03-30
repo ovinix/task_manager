@@ -38,11 +38,11 @@
         <br/>
         <label>Priority</label>
         <div class="btn-group btn-group-justified" data-toggle="buttons">
-          <%= f.label :priority, 'Normal', value: :normal, class: "btn btn-default #{'active' if task.normal?}" do %>
+          <%= f.label :priority, 'Normal', class: "btn btn-default #{'active' if task.normal?}" do %>
             <%= f.radio_button :priority, :normal, checked: task.normal? %>
             Normal
           <% end %>
-          <%= f.label :priority, 'Important', value: :important, class: "btn btn-default #{'active' if task.important?}" do %>
+          <%= f.label :priority, 'Important', class: "btn btn-default #{'active' if task.important?}" do %>
             <%= f.radio_button :priority, :important, checked: task.important? %>
             <span class="star glyphicon glyphicon glyphicon-star" aria-hidden="true"></span> 
              Important

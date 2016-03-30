@@ -219,7 +219,7 @@ input {
 
 /* modals */
 
-.modal input[type=submit] {
+.modal input[type=submit], .modal input[type=radio] {
   width: auto;
 }
 
