@@ -2,7 +2,11 @@ class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :list
 
-  default_scope -> { order(:completed_at, priority: :desc, created_at: :desc ) }
+  if Rails.env.production?
+    default_scope -> { order(completed_at: :desc, priority: :desc, created_at: :desc ) }
+  else
+    default_scope -> { order(:completed_at, priority: :desc, created_at: :desc ) }
+  end  
 
   validates :user, presence: true
   validates :list, presence: true
