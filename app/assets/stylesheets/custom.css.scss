@@ -80,6 +80,9 @@ input {
   color: $state-danger-text;
   background-color: rgba(0, 0, 0, 0.2);
   border-color: $state-danger-text;
+  h2 {
+    @extend h4;
+  }
 }
 
 /* miscellaneous */
@@ -108,11 +111,11 @@ input {
 }
 
 .navbar-collapse.collapse.in, .navbar-collapse.collapsing {
-  background: -webkit-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
-  background:    -moz-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
-  background:     -ms-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
-  background:      -o-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
-  background:         linear-gradient(180deg, #d6d3c1 10%, #d18d0e 200%);
+  background: -webkit-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
+  background:    -moz-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
+  background:     -ms-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
+  background:      -o-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
+  background:         linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
   border-top: none;
   border-radius: 6px;
 }
@@ -235,6 +238,22 @@ input {
   .close:hover {
     color: $gray-light;
   }
+}
+
+.modal-footer, .modal-content, .modal-header {
+  border: none;
+}
+
+.modal-body, .modal-footer {
+  padding: 15px 25px;
+}
+
+.modal-content {
+  background: -webkit-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
+  background:    -moz-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
+  background:     -ms-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
+  background:      -o-linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
+  background:         linear-gradient(180deg, #d6d3c1 10%, #d18d0e 250%);
 }
 
 .input-group-addon .group-checkbox {
