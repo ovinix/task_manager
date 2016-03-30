@@ -4,6 +4,10 @@ $(document).ready(function() {
 	    $(this).find("[autofocus]:first").focus();
 	});
 
+	$(".modal").on('hidden.bs.modal', function() {
+	    $(this).html("");
+	});
+
 	$("#lists").on('hide.bs.collapse', '.panel', function (e) {
 	  $(e.currentTarget).css("border-radius", "4px");
 	});

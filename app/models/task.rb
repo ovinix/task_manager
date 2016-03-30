@@ -2,9 +2,9 @@ class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :list
 
-  if Rails.env.production?
+  if Rails.env.production? # Sort order for Postgres
     default_scope -> { order(completed_at: :desc, priority: :desc, created_at: :desc ) }
-  else
+  else                    # Sort order for SQLite
     default_scope -> { order(:completed_at, priority: :desc, created_at: :desc ) }
   end  
 

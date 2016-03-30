@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for  :users, :path => '',
                       :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :lists do
-    resources :tasks do
+    resources :tasks, except: [:index, :new, :edit] do
       member do
         patch :complete
         patch :prioritize
@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   root        'lists#index'
+
+  get '*path' => redirect('/')
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

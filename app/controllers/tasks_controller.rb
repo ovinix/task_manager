@@ -3,17 +3,7 @@ class TasksController < ApplicationController
   before_action :correct_user
   before_action :set_task, except: [:create]
 
-  def index
-  end
-
   def show
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.js
-    end
-  end
-
-  def edit
     respond_to do |format|
       format.html { redirect_to root_path }
       format.js
@@ -25,10 +15,10 @@ class TasksController < ApplicationController
     @task.user_id = current_user.id
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: 'Task was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Task was successfully created.' }
         format.js
       else
-        format.html { render :new }
+        format.html { redirect_to root_path, notice: 'Invalid task.' }
         format.js
       end
     end
@@ -37,13 +27,11 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
         format.js
-        format.json { render :show, status: :ok, location: @task }
       else
-        format.html { render :edit }
+        format.html { redirect_to root_path, notice: 'Invalid task.' }
         format.js
-        format.json { render json: @task.errors, status: :unprocessable_entity }
       end
     end
   end
