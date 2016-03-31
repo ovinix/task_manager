@@ -1,14 +1,15 @@
 <div class="modal-dialog">
   <div class="modal-content">
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Close">×</button>
       <h4 class="modal-title">
         <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
         <%= modal_title %>
       </h4>
     </div>
-    <%= form_for([task.list, task], remote: true) do |f| %>
-      <div class="modal-body">
+    
+    <div class="modal-body">
+      <%= form_for([task.list, task], remote: true) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <div class="input-group">
           <span class="input-group-addon">
@@ -48,31 +49,19 @@
           <% end %>
         </div>
         <br/>
+        <div class="pull-right">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.submit "Update", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+      <br/>
+      <div class="comments">
         <h4 class="text-center">
           Comments
         </h4>
-        <!-- <#%= form_for([task.list, task], remote: true) do |f| %>
-          <#%= render 'shared/error_messages', object: f.object %>
-          <p class="input-group">
-            <#%= f.text_field :content, placeholder: "Start typing here to create a task..", class: 'form-control' %>
-            <span class="input-group-btn">
-              <#%= button_tag "Add Task", type: "submit", class: 'btn btn-primary' %>
-            </span>
-          </p>
-        <#% end %> -->
-        <div class="comment">
-          <span class="comment-author">ShvVolodymyr</span> <span class="comment-time">a few seconds ago</span>
-          <div class="comment-text">first comment</div>
-        </div>
-        <div class="comment">
-          <span class="comment-author">ShvVolodymyr</span> <span class="comment-time">a few seconds ago</span>
-          <div class="comment-text">another comment</div>
-        </div>
+        <%= render 'comments/form', task: task, comment: Comment.new %>
+        <%= render task.comments %>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= f.submit "Update", class: 'btn btn-primary' %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
