@@ -2,6 +2,8 @@ class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :list
 
+  has_many :comments, dependent: :destroy
+
   if Rails.env.production? # Sort order for Postgres
     default_scope -> { order(completed_at: :desc, priority: :desc, created_at: :desc ) }
   else                    # Sort order for SQLite

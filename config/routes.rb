@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
+  scope 'tasks/:task_id' do
+    resources :comments, only: [:create, :destroy]
+  end
+
   root        'lists#index'
 
   get '*path' => redirect('/')

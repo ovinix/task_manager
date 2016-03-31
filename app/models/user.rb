@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook]
   has_many :lists, dependent: :destroy
   has_many :tasks
+  has_many :comments
 
   validates :name, presence: true, length: { maximum: 50 }
 
