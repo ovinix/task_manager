@@ -47,6 +47,17 @@ textarea {
   @extend .alert-danger;
 }
 
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  color: $brand-primary;
+  p:first-child {
+    margin: 0;
+  }
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {

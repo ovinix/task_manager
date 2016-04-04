@@ -14,12 +14,11 @@
     </nav>    
     <nav id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li class="<%= 'active' if current_page?(root_path) %>"><%= link_to "Home", root_path %></li>
         <% if user_signed_in? %>
-          <li class="<%= 'active' if current_page?(edit_user_registration_path) %>"><%= link_to "Edit profile", edit_user_registration_path %></li>
+          <li><%= link_to "Edit profile", edit_user_registration_path %></li>
           <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li> 
         <% else %>
-          <li class="<%= 'active' if current_page?(new_user_session_path) %>"><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
         <% end %>        
       </ul>
     </nav>
