@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Comment was successfully created.' }
         format.js
       else
-        format.html { redirect_to root_path, notice: 'Invalid comment.' }
+        format.html { redirect_to root_path, alert: 'Invalid comment.' }
         format.js
       end
     end

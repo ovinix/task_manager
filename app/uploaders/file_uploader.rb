@@ -9,6 +9,10 @@ class FileUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
     include Cloudinary::CarrierWave
+
+    def public_id
+      basename = File.basename(original_filename)
+    end  
   else
     storage :file
   end
