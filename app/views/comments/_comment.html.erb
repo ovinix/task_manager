@@ -5,4 +5,7 @@
   	<%= link_to	"×", task_comment_path(comment.task, comment), remote: true, method: :delete, class: "close", title: "Delete" %>
   </span>
   <div class="comment-text"><%= comment.content %></div>
+  <% if comment.file? %>
+  	<b>File:</b> <%= link_to comment.file.file.original_filename, comment.file.url %>
+  <% end %>
 </div>
