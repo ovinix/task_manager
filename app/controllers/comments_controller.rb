@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
   private
     def correct_user
       @task = current_user.tasks.find_by(id: params[:task_id])
-      redirect_to root_path if @task.nil?
+      redirect_to root_path if cannot? :manage, @task
     end
 
     def set_comment

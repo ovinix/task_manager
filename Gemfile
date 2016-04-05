@@ -17,6 +17,7 @@ gem 'omniauth-facebook',                '3.0.0'
 gem 'momentjs-rails',                   '2.9.0'
 gem 'bootstrap3-datetimepicker-rails',  '4.17.37'
 gem 'remotipart',                       '~> 1.2'
+gem 'cancancan',                        '~> 1.10'
 
 group :development, :test do
   gem 'sqlite3',     '1.3.9'

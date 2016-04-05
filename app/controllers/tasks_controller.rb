@@ -63,7 +63,7 @@ class TasksController < ApplicationController
   private
     def correct_user
       @list = current_user.lists.find_by(id: params[:list_id])
-      redirect_to root_path if @list.nil?
+      redirect_to root_path if cannot? :manage, @list
     end
 
     def set_task
