@@ -4,10 +4,28 @@ one:
   user: first
   list: one
   content: 'MyString'
-  completed_at: 2016-03-28 20:47:25
+  created_at: <%= 10.hours.ago %>
 
 two:
   user: first
   list: one
   content: 'MyString2'
-  completed_at: 2016-03-28 20:47:25
+  created_at: <%= 10.minutes.ago %>
+
+most_recent:
+  user: first
+  list: one
+  content: 'Most recent'
+  created_at: <%= 3.minutes.ago %>
+
+completed:
+  user: first
+  list: one
+  content: 'Completed'
+  completed_at: <%= 5.minutes.ago %>
+
+important:
+  user: first
+  list: one
+  content: 'Important'
+  priority: <%= :important %>

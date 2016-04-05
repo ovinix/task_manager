@@ -7,7 +7,7 @@ class TasksControllerTest < ActionController::TestCase
     @user = users(:first)
     @other_user = users(:second)
     @list = lists(:one)
-    @task = tasks(:one)
+    @task = tasks(:completed)
   end
 
   test "should get show" do

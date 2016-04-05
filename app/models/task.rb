@@ -10,8 +10,8 @@ class Task < ActiveRecord::Base
     default_scope -> { order(:completed_at, priority: :desc, created_at: :desc ) }
   end  
 
-  validates :user, presence: true
-  validates :list, presence: true
+  validates :user_id, presence: true
+  validates :list_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
   attr_reader :deadline_at

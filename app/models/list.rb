@@ -5,6 +5,7 @@ class List < ActiveRecord::Base
 
   default_scope -> { order(created_at: :desc) }
   
-  validates :user, presence: true
-  validates :title, presence: true
+  validates :user_id, presence: true
+  validates :title, presence: true, length: { maximum: 50 }
+
 end

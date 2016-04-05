@@ -6,7 +6,8 @@ class Comment < ActiveRecord::Base
 
   has_one :list, through: :task
 
-  validates :user, presence: true
+  validates :user_id, presence: true
+  validates :task_id, presence: true
   validates :content, presence: true, length: { maximum: 140 }
 
   validate :file_size
