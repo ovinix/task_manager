@@ -20,11 +20,13 @@ gem 'remotipart',                       '~> 1.2'
 gem 'cancancan',                        '~> 1.10'
 
 group :development, :test do
-  gem 'sqlite3',     '1.3.9'
-  gem 'byebug',      '3.4.0'
-  gem 'web-console', '2.0.0.beta3'
-  gem 'spring',      '1.1.3'
-  gem 'mini_magick', '3.8.0'
+  gem 'sqlite3',            '1.3.9'
+  gem 'byebug',             '3.4.0'
+  gem 'web-console',        '2.0.0.beta3'
+  gem 'spring',             '1.1.3'
+  gem 'capybara',           '2.6.2'
+  gem 'selenium-webdriver', '2.53.0'
+  gem 'database_cleaner',   '1.5.1'
 end
 
 group :test do
@@ -39,4 +41,3 @@ group :production do
   gem 'puma',           '2.11.1'
   gem 'cloudinary',     '1.1.2'
 end
-

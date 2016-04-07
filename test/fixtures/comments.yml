@@ -3,7 +3,7 @@
 one:
   user: first
   task: one
-  content: 'MyString'
+  content: 'Comment String'
   created_at: <%= 10.hours.ago %>
 
 two:

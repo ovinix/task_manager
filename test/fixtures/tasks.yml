@@ -3,7 +3,7 @@
 one:
   user: first
   list: one
-  content: 'MyString'
+  content: 'My String'
   created_at: <%= 10.hours.ago %>
 
 two:

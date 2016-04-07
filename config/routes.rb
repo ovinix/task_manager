@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for  :users, :path => '',
                       :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-  resources :lists do
+  resources :lists, except: :index do
     resources :tasks, except: [:index, :new, :edit] do
       member do
         patch :complete
