@@ -1,8 +1,10 @@
 <div id="flash" class="row">
 <% flash.each do |message_type, message| %>
-	<div class="col-md-6 col-md-offset-3 alert alert-<%= message_type %>">
-		<%= message %>
-		<button class="close" title="Dismiss" onclick="closeFlash()">×</button>
+	<div class="col-md-6 col-md-offset-3">
+		<div class="alert alert-<%= message_type %>">
+			<%= message %>
+			<button class="close" title="Dismiss" onclick="closeFlash()">×</button>
+		</div>
 	</div>
 <% end %>
 </div>

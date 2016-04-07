@@ -1,5 +1,5 @@
 /* bootstrap */
-$(document).ready(function() {
+ready = function() {
 	$(".modal").on('shown.bs.modal', function() {
 	    $(this).find("[autofocus]:first").focus();
 	});
@@ -15,10 +15,14 @@ $(document).ready(function() {
 	$("#lists").on('show.bs.collapse', '.panel', function (e) {
 	  $(e.currentTarget).css("border-radius", "");
 	});
-});
+};
+$(document).ready(ready);
+// turbolinks event 
+// https://habrahabr.ru/post/167161/
+$(document).on("page:load", ready);
 
 /* other */
-function closeFlash() {
+closeFlash = function() {
 	$("#flash").remove();
 }
 

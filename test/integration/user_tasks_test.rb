@@ -114,7 +114,7 @@ class UserTasksTest < ActionDispatch::IntegrationTest
     page.execute_script("$('.hoverable').show();") # Selenium couldn't interacte with invisible elements
     find("a[href='#{list_task_path(@list, @task)}'][data-toggle='modal']").click
     modal = find("#modal-window")
-    modal.fill_in "task_deadline_at", with: "2016-05-07"
+    modal.fill_in "task_deadline_at", with: "2016-05-07 12:00 AM"
     modal.click_button("Update")
     assert page.has_content?("2016-05-07")
   end
