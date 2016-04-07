@@ -41,10 +41,14 @@ textarea {
 
 .alert-notice {
 	@extend .alert-success;
+  background-color: rgba(223, 240, 216, 0.33);
+  border-color: $state-success-text
 }
 
 .alert-alert {
   @extend .alert-danger;
+  background-color: rgba(242, 222, 222, 0.33);
+  border-color: $state-danger-text;
 }
 
 /* footer */

@@ -18,7 +18,7 @@ class TasksController < ApplicationController
         format.html { redirect_to root_path, notice: 'Task was successfully created.' }
         format.js
       else
-        format.html { redirect_to root_path, notice: 'Invalid task.' }
+        format.html { redirect_to root_path, alert: 'Invalid task.' }
         format.js
       end
     end
@@ -30,7 +30,7 @@ class TasksController < ApplicationController
         format.html { redirect_to root_path, notice: 'Task was successfully updated.' }
         format.js
       else
-        format.html { redirect_to root_path, notice: 'Invalid task.' }
+        format.html { redirect_to root_path, alert: 'Invalid task.' }
         format.js
       end
     end

@@ -33,7 +33,7 @@ class ListsControllerTest < ActionController::TestCase
     sign_in @user
 
     get :new
-    assert_response :success
+    assert_redirected_to root_path
 
     post :new, format: :js
     assert_match CGI::escapeHTML('Add TODO List'), response.body
@@ -50,7 +50,7 @@ class ListsControllerTest < ActionController::TestCase
       post :create, list: { title: @list.title, user_id: @list.user_id }
     end
 
-    assert_redirected_to list_path(assigns(:list))
+    assert_redirected_to root_path
   end
 
   test "should show list" do
@@ -60,7 +60,7 @@ class ListsControllerTest < ActionController::TestCase
     sign_in @user
 
     get :show, id: @list
-    assert_response :success
+    assert_redirected_to root_path
   end
 
   test "should get edit" do
@@ -70,7 +70,7 @@ class ListsControllerTest < ActionController::TestCase
     sign_in @user
 
     get :edit, id: @list
-    assert_response :success
+    assert_redirected_to root_path
 
     post :edit, format: :js, id: @list
     assert_match CGI::escapeHTML('Edit List Title'), response.body
@@ -84,7 +84,7 @@ class ListsControllerTest < ActionController::TestCase
     sign_in @user
 
     patch :update, id: @list, list: { title: @list.title, user_id: @list.user_id }
-    assert_redirected_to list_path(assigns(:list))
+    assert_redirected_to root_path
   end
 
   test "should destroy list" do
@@ -98,6 +98,6 @@ class ListsControllerTest < ActionController::TestCase
       delete :destroy, id: @list
     end
 
-    assert_redirected_to lists_path
+    assert_redirected_to root_path
   end
 end

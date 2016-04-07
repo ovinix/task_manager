@@ -10,13 +10,13 @@
 		</td>
 		<td class="col-md-2 col-xs-2 text-center vert-align">
 			<div class="hoverable">
-				<%= link_to prioritize_list_task_path(task.list, task), remote: true, method: :patch do %>
+				<%= link_to prioritize_list_task_path(task.list, task), remote: true, method: :patch, title: "Prioritize" do %>
 					<span class="glyphicon glyphicon glyphicon-star-empty" aria-hidden="true"></span>
 				<% end %> | 
-				<%= link_to list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
+				<%= link_to list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window', title: "Edit" do %>
 					<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				<% end %> | 
-				<%= link_to list_task_path(task.list, task), remote: true, method: :delete do %>
+				<%= link_to list_task_path(task.list, task), remote: true, method: :delete, title: "Delete" do %>
 					<span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
 				<% end %>
 			</div>
@@ -37,13 +37,13 @@
 		</td>
 		<td class="col-md-2 col-xs-2 text-center vert-align">
 			<div class="hoverable">
-				<%= link_to prioritize_list_task_path(task.list, task), remote: true, method: :patch do %>
+				<%= link_to prioritize_list_task_path(task.list, task), remote: true, method: :patch, title: "Prioritize" do %>
 					<span class="glyphicon glyphicon glyphicon-star-empty" aria-hidden="true"></span>
 				<% end %> | 
-				<%= link_to list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window' do %>
+				<%= link_to list_task_path(task.list, task), remote: true, 'data-toggle': "modal", 'data-target': '#modal-window', title: "Edit" do %>
 					<span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span>
 				<% end %> | 
-				<%= link_to list_task_path(task.list, task), remote: true, method: :delete do %>
+				<%= link_to list_task_path(task.list, task), remote: true, method: :delete, title: "Delete" do %>
 					<span class="glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
 				<% end %>
 			</div>

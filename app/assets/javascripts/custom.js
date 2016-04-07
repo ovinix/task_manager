@@ -17,3 +17,8 @@ $(document).ready(function() {
 	});
 });
 
+/* other */
+function closeFlash() {
+	$("#flash").remove();
+}
+

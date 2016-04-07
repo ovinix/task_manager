@@ -59,7 +59,7 @@ class UserListsTest < ActionDispatch::IntegrationTest
   test "shouldn't update a list title" do
     find("a[href='#{edit_list_path(@list)}']").click
     fill_in "list_title", with: "New title"
-    click_button("Close")
+    click_button("Close", match: :first)
     assert_not page.has_content?("New title")
   end
 
@@ -68,7 +68,7 @@ class UserListsTest < ActionDispatch::IntegrationTest
     fill_in "list_title", with: "    "
     click_button("Save")
     assert page.has_css?('.field_with_errors #list_title')
-    click_button("Close")
+    click_button("Close", match: :first)
   end
 
   test "should create a list" do
@@ -85,7 +85,7 @@ class UserListsTest < ActionDispatch::IntegrationTest
     assert_no_difference "@user.lists.count" do
       find("a[href='#{new_list_path}']").click
       fill_in "list_title", with: "New title"
-      click_button("Close")
+      click_button("Close", match: :first)
     end
     assert_not page.has_content?("New title")
   end
@@ -97,6 +97,6 @@ class UserListsTest < ActionDispatch::IntegrationTest
       click_button("Save")
     end
     assert page.has_css?('.field_with_errors #list_title')
-    click_button("Close")
+    click_button("Close", match: :first)
   end
 end
